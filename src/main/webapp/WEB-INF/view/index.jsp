@@ -69,14 +69,14 @@
                                 class="left-body">视频管理</span>
                         </div>
                     </div>
-                    <%--<div>--%>
-                        <%--<div class="accordion-inner" id="orderManger">--%>
-                            <%--<img class="left-icon-child"--%>
-                                 <%--src="${pageContext.request.contextPath}/static/images/32/4992_user.png"/><span--%>
-                                <%--class="left-body">订单管理</span>--%>
+                    <div>
+                        <div class="accordion-inner" id="orderManger">
+                            <img class="left-icon-child"
+                                 src="${pageContext.request.contextPath}/static/images/32/4992_user.png"/><span
+                                class="left-body">消费记录</span>
 
-                        <%--</div>--%>
-                    <%--</div>--%>
+                        </div>
+                    </div>
                     <%--<div>--%>
                         <%--<div class="accordion-inner" id="shoppCarManger">--%>
                             <%--<img class="left-icon-child"--%>
@@ -103,7 +103,7 @@
     <script>
         $(function () {
             $('#taskConfigIframe').attr('src','${pageContext.request.contextPath}/user/userList');
-        })
+        });
 
         function skip(emun) {
             if(emun===1){
@@ -111,7 +111,7 @@
             }else if(emun===2){
                 $('#taskConfigIframe').attr('src','${pageContext.request.contextPath}/user/video');
             }else if(emun===3){
-                $('#taskConfigIframe').attr('src','${pageContext.request.contextPath}/user/order');
+                $('#taskConfigIframe').attr('src','${pageContext.request.contextPath}/user/consume');
             }else{
                 $('#taskConfigIframe').attr('src','${pageContext.request.contextPath}/user/shoppCar');
             }

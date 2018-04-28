@@ -32,8 +32,6 @@ public class UserController {
         return "index";
     }
 
-
-
     /*************************菜单页面进行跳转************************/
     @RequestMapping(value = "/userList",method = RequestMethod.GET)
     public String userList() {
@@ -44,15 +42,18 @@ public class UserController {
     public String video() {
         return "video";
     }
+    @RequestMapping(value = "/consume",method = RequestMethod.GET)
+    public String consume() {
+        return "consume";
+    }
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String register() {
         return "register";
     }
 
-
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(String username,String password) {
         User user = userService.login(username,password);
         if(user!=null){

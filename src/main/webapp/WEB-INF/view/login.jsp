@@ -34,7 +34,7 @@
 
     $("#submit").click(function () {
         $.ajax({
-            type: "post",
+            type: "POST",
             dataType: "text",
             url: $urlPath + "/user/login",
             data: $('#userForm').serialize(),
@@ -47,8 +47,6 @@
             }
         })
     })
-
-
 </script>
 </body>
 </html>
