@@ -5,13 +5,13 @@
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
     <meta http-equiv="Expires" content="0"/>
-    <title>在线家居商城</title>
+    <title>视频租赁管理系统</title>
     <link href="${pageContext.request.contextPath}/static/styles/login.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <input type="hidden" value="${pageContext.request.contextPath}" id="urlPath">
 <div class="login">
-    <div class="message">在线家居商城</div>
+    <div class="message">视频租赁管理系统</div>
     <div id="darkbannerwrap"></div>
     <form method="post" id="userFormRegister">
         <input name="action" value="login" type="hidden"/>

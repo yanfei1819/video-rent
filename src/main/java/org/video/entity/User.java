@@ -11,7 +11,7 @@ public class User {
 
     private int age;
 
-    private int roleId;
+    private int role;
 
     private String password;
 
@@ -45,11 +45,11 @@ public class User {
     }
 
     public int getRoleId() {
-        return roleId;
+        return role;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setRoleId(int role) {
+        this.role = role;
     }
 
     public String getPassword() {

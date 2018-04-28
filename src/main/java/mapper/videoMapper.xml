@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.video.dao.VideoDao">
+
+    <select id="findById" resultType="org.video.entity.Video">
+        SELECT * FROM video WHERE videoId = #{videoId}
+    </select>
+
+    <select id="findAll" resultType="org.video.entity.Video">
+        SELECT * FROM video
+    </select>
+
+    <select id="findAllByCondition" resultType="org.video.entity.Video">
+        SELECT * FROM video t WHERE t.videoName LIKE CONCAT('%','${condition}','%' ) OR t.videoName LIKE CONCAT('%','${condition}','%' )
+    </select>
+
+    <insert id="add" parameterType="org.video.entity.Video">
+        INSERT INTO video(name,age,role,password,mobile,address) VALUES(#{name},#{age},#{role},#{password},#{mobile},#{address})
+    </insert>
+    
+    <delete id="deleteById" parameterType="org.video.entity.Video">
+        DELETE FROM video WHERE videoId = #{videoId}
+    </delete>
+    
+    <update id="update" parameterType="org.video.entity.Video">
+        UPDATE video set videoName = #{videoName} ,videoType = #{videoType},releaseDate = #{releaseDate} WHERE videoId = #{videoId}
+    </update>
+
+
+</mapper>

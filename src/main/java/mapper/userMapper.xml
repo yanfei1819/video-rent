@@ -19,7 +19,7 @@
     </select>
 
     <insert id="add" parameterType="org.video.entity.User">
-        INSERT INTO user(name,age,roleId,password,mobile,address) VALUES(#{name},#{age},#{roleId},#{password},#{mobile},#{address})
+        INSERT INTO user(name,age,role,password,mobile,address) VALUES(#{name},#{age},#{role},#{password},#{mobile},#{address})
     </insert>
     
     <delete id="deleteById" parameterType="org.video.entity.User">
@@ -27,7 +27,7 @@
     </delete>
     
     <update id="update" parameterType="org.video.entity.User">
-        UPDATE user set name = #{name} ,age = #{age},roleId = #{roleId},password = #{password},mobile = #{mobile},address = #{address} WHERE userId = #{userId}
+        UPDATE user set name = #{name} ,age = #{age},role = #{role},password = #{password},mobile = #{mobile},address = #{address} WHERE userId = #{userId}
     </update>
 
 

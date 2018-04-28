@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.video.service.impl.UserServiceImpl;
 
 import java.util.List;
 
@@ -39,19 +40,9 @@ public class UserController {
         return "userList";
     }
 
-    @RequestMapping(value = "/shoppCar",method = RequestMethod.GET)
-    public String shoppCar() {
-        return "shoppCar";
-    }
-
-    @RequestMapping(value = "/order",method = RequestMethod.GET)
-    public String order() {
-        return "order";
-    }
-
-    @RequestMapping(value = "/homewear",method = RequestMethod.GET)
-    public String homewear() {
-        return "homewear";
+    @RequestMapping(value = "/video",method = RequestMethod.GET)
+    public String video() {
+        return "video";
     }
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
@@ -106,5 +97,7 @@ public class UserController {
     public int deleteUser(int userId){
         return userService.deleteById(userId);
     }
+
+
 
 }

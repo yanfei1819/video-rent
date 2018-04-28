@@ -7,7 +7,7 @@ $(function () {
 
 function load(curr) {
     $.ajax({
-        url: "../Json/Index.aspx",
+        // url: "../Json/Index.aspx",
         timeout: 300000,
         dataType: "json",
         type: "post",
@@ -77,7 +77,7 @@ function add() {
         English: $("#English").val()
     }
     $.ajax({
-        url: "../Json/Index.aspx",
+        // url: "../Json/Index.aspx",
         timeout: 300000,
         dataType: "json",
         type: "post",
@@ -94,7 +94,7 @@ function add() {
 
 function openedt(userName) {
     $.ajax({
-        url: "../Json/Index.aspx",
+        // url: "../Json/Index.aspx",
         timeout: 300000,
         dataType: "json",
         type: "post",
@@ -139,7 +139,7 @@ function edt() {
         English: $("#English").val()
     }
     $.ajax({
-        url: "../Json/Index.aspx",
+        // url: "../Json/Index.aspx",
         timeout: 300000,
         dataType: "json",
         type: "post",
@@ -160,7 +160,7 @@ function del(userName) {
         btn: ['确定', '取消'] //按钮
     }, function () {
         $.ajax({
-            url: "../Json/Index.aspx",
+            // url: "../Json/Index.aspx",
             timeout: 300000,
             dataType: "json",
             type: "post",
