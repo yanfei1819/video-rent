@@ -1,14 +1,16 @@
 package org.video.web.controller;
 
-import org.video.entity.User;
-import org.video.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.video.service.impl.UserServiceImpl;
+import org.video.entity.User;
+import org.video.service.UserService;
+import org.video.util.UserUtils;
+import org.video.web.dto.UserDTO;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -54,13 +56,21 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(String username,String password) {
+    public String login(HttpSession session,String username,String password) {
         User user = userService.login(username,password);
         if(user!=null){
+            UserUtils.saveUserSession(user, session);
             return "index";
         }else {
             return "error";
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/logout",method = RequestMethod.POST)
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "success";
     }
 
     @ResponseBody
@@ -71,7 +81,9 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/findAllByCondition",method = RequestMethod.GET)
     public  List<User> findAllByCondition(String mobile){
-        List<User>  list = userService.findAllByCondition(mobile);
+        if (mobile == null || mobile.trim().length() == 0){
+            return userService.findAll();
+        }
         return userService.findAllByCondition(mobile);
     }
 
@@ -83,8 +95,9 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/addUser",method = RequestMethod.POST)
-    public int addUser(User user){
-        return userService.add(user);
+    public int addUser(UserDTO user){
+
+        return userService.add(user.toUser());
     }
 
     @ResponseBody

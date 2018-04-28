@@ -19,7 +19,7 @@
         <hr class="hr15"/>
         <input name="password" placeholder="密码" required="" type="password"/>
         <hr class="hr15"/>
-        <input value="登录" style="width:100%;" type="submit" id="submit"/>
+        <input value="登录" style="width:100%;" type="button" id="submit"/>
         <div style="margin-left: 92%"><a href="" id="register">注册</a></div>
     </form>
 </div>
@@ -42,8 +42,11 @@
                 if (data && data === 'index') {
                     window.location.href = $urlPath + '/user/home'
                 } else {
-                    alert(data);
+                    alert('用户名或密码错误');
                 }
+            },
+            error: function(){
+                alert('请求失败');
             }
         })
     })

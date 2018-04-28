@@ -47,6 +47,8 @@
     <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
     <mvc:default-servlet-handler/>
 
+    <mvc:view-controller path="/" view-name="redirect:/user/home"/>
+
     <!-- mvc注解 -->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="false">

@@ -4,6 +4,7 @@ import org.video.dao.UserDao;
 import org.video.entity.User;
 import org.video.service.UserService;
 import org.springframework.stereotype.Service;
+import org.video.util.UserUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -40,6 +41,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int add(User user) {
+        user.setRoleId(UserUtils.ROLE_CLIENT);
         return userDao.add(user);
     }
 

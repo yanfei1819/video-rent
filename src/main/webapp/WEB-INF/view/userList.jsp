@@ -1,6 +1,7 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/WEB-INF/view/include/taglib.jsp"%>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -54,6 +55,12 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label" for="age">姓名</label>
+                        <div class="controls">
+                            <input type="text" name="age" id="age" placeholder="年龄" style="height: 30px">
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label class="control-label" for="mobile">手机</label>
                         <div class="controls">
                             <input type="text" id="mobile" name="mobile" placeholder="手机" style="height: 30px">
@@ -98,19 +105,19 @@
             url: $urlPath + "/user/findAllByCondition?mobile="+condition,
             data: {},
             type: "get",
-            dataType: "text",
+            dataType: "json",
             success: function (data) {
                 var list = data;
                 var html = "";
                 for (var i = 0; i < list.length; i++) {
                     var user = list[i];
 
-                        html += "<tr>" +
-                            "<td>" + user.userId + "</td><td>" + user.name + "</td><td>" + user.mobile + "</td><td>" + user.role + "</td><td>" + user.age + "</td>" +
-                            "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>删除</a></td>" +
-                            "</tr>";
-                    $("#userListBody").html(html);
+                    html += "<tr>" +
+                        "<td>" + user.userId + "</td><td>" + user.name + "</td><td>" + user.mobile + "</td><td>" + user.roleId + "</td><td>" + user.age + "</td>" +
+                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>删除</a></td>" +
+                        "</tr>";
                 }
+                $("#userListBody").html(html);
             }
         })
     }
@@ -119,7 +126,7 @@
     function selectUsers() {
         var $urlPath = $('#urlPathUser').val();
         $.ajax({
-            url: $urlPath + "/user/findAll",
+            url: $ctx + "/user/findAll",
             data: {},
             type: "get",
             dataType: "json",
@@ -129,7 +136,7 @@
                 for (var i = 0; i < list.length; i++) {
                     var user = list[i];
                     html += "<tr>" +
-                        "<td>" + user.userId + "</td><td>" + user.name + "</td><td>" + user.mobile + "</td><td>" + user.role + "</td><td>" + user.age + "</td>" +
+                        "<td>" + user.userId + "</td><td>" + user.name + "</td><td>" + user.mobile + "</td><td>" + user.roleId + "</td><td>" + user.age + "</td>" +
                         "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>删除</a></td>" +
                         "</tr>";
                     $("#userListBody").html(html);
@@ -144,12 +151,12 @@
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "addUser",
+            url: $ctx +"/user/addUser",
             data: $('#form1').serialize(),
             success: function (data) {
                 alert("保存成功");
+                $("#addModal").modal('hide');
                 selectUsers();
-                $("#addModal").hide();
             }
         })
     }

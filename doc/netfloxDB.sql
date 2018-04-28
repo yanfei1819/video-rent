@@ -12,6 +12,9 @@ File Encoding         : 65001
 
 Date: 2018-04-28 20:12:32
 */
+DROP DATABASE IF EXISTS `netfloxdb`;
+CREATE DATABASE IF NOT EXISTS `netfloxdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `netfloxdb`;
 
 SET FOREIGN_KEY_CHECKS=0;
 

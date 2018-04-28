@@ -1,7 +1,7 @@
 ﻿
 var curr = 1;
 $(function () {
-    load(curr);
+    //load(curr);
 })
 
 

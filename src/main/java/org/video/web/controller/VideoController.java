@@ -26,7 +26,6 @@ public class VideoController {
     @ResponseBody
     @RequestMapping(value = "/findAll",method = RequestMethod.GET)
     public List<Video> findAll(){
-        List<Video> list = service.findAll();
         return service.findAll();
     }
 

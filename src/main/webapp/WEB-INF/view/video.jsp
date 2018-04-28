@@ -1,5 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/WEB-INF/view/include/taglib.jsp"%>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -16,7 +17,11 @@
         <h4>视频列表</h4>
         <div><input type="text" id="conditionVideo" style="margin: 0;height: 6%" placeholder="根据视频名称或者类型查询"><span style="margin-left: 2%"><a
                 class="btn btn-success" onclick="selectUsersByCondition();">查询</a></span></div>
-        <div class="add" style="margin-left: 91%"><a class="btn btn-success " onclick="openadd();">新增</a></div>
+
+        <div class="add" style="margin-left: 91%">
+            <c:if test="${isLogin == 'true'}"><a class="btn btn-success " onclick="openadd();">新增</a> </c:if>
+        </div>
+
         <div class="w">
             <div class="span12">
                 <table class="table table-condensed table-bordered table-hover tab">
@@ -44,7 +49,7 @@
                 <h3 id="myModalLabel">添加视频</h3>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" id="videoForm">
+                <form class="form-horizontal" id="videoForm" onsubmit="return false;">
                     <input type="text" name="videoId" id="videoId" style="display:none">
                     <div class="control-group">
                         <label class="control-label" for="videoName">视频名称</label>
@@ -95,9 +100,13 @@
 
     function selectUsersByCondition() {
 //        var $urlPath = $('#urlPathVideo').val();
+        if ($isLogin != 'true'){
+            alert('请先登录!')
+            return;
+        }
         var condition = $('#conditionVideo').val();
         $.ajax({
-            url: "/video-rent/video/findAllByCondition?condition=" + encodeURI(encodeURI(condition)),
+            url: $ctx + "/video/findAllByCondition?condition=" + encodeURI(encodeURI(condition)),
             data: {},
             type: "get",
             dataType: "json",
@@ -118,12 +127,11 @@
     }
 
     function selectVideo() {
-//        var $urlPath = $('#urlPathVideo').val();
         $.ajax({
 
-            url: "/video-rent/video/findAll",
+            url: $ctx + "/video/findAll",
             data: {},
-            type: "get",
+            type: "GET",
             dataType: "json",
             success: function (data) {
                 var list = data;
@@ -147,7 +155,7 @@
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "/video-rent/video/addVideo",
+            url: $ctx + "/video/addVideo",
             data: $('#videoForm').serialize(),
             success: function (data) {
                 alert("保存成功");
