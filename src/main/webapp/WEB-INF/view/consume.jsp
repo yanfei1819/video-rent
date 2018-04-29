@@ -13,19 +13,26 @@
 <input type="hidden" value="${pageContext.request.contextPath}" id="urlPathUser">
 <div class="container-fluid">
     <div class="row-fluid">
-        <h4>视频列表</h4>
-        <div><input type="text" id="conditionVideo" style="margin: 0;height: 6%" placeholder="根据视频名称或者类型查询"><span style="margin-left: 2%"><a
-                class="btn btn-success" onclick="selectUsersByCondition();">查询</a></span></div>
-        <div class="add" style="margin-left: 91%"><a class="btn btn-success " onclick="openadd();">新增</a></div>
+        <%--<h4>视频列表</h4>--%>
+        <h4>Viode List</h4>
+        <div><input type="text" id="conditionVideo" style="margin: 0;height: 6%" placeholder="search list by name or type">
+            <span style="margin-left: 2%">
+                <%--<a class="btn btn-success" onclick="selectUsersByCondition();">查询</a>--%>
+                <a class="btn btn-success" onclick="selectUsersByCondition();">search</a>
+            </span>
+        </div>
+        <div class="add" style="margin-left: 91%"><a class="btn btn-success " onclick="openadd();">add</a></div>
         <div class="w">
             <div class="span12">
                 <table class="table table-condensed table-bordered table-hover tab">
                     <thead>
                     <tr>
-                        <th>视频编号</th>
-                        <th>视频名称</th>
-                        <th>视频类型</th>
-                        <th>观看类型</th>
+                        <%--<th>视频编号</th>--%>
+                        <th>video no</th>
+                        <%--<th>视频名称</th>--%>
+                        <th>video name</th>
+                        <th>video type</th>
+                        <th>watch type</th>
                     </tr>
                     </thead>
                     <tbody id="userListBody"></tbody>
@@ -109,9 +116,7 @@
                     var video = list[i];
 
                     html += "<tr>" +
-                        "<td>" + video.videoId + "</td><td>" + video.videoName + "</td><td>" + video.videoType + "</td><td>" + video.releaseDate + "</td>" +
-                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + video.videoId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + video.videoId + "\");'>删除</a></td>" +
-                        "</tr>";
+                        "<td>" + video.videoId + "</td><td>" + video.videoName + "</td><td>" + video.videoType + "</td><td>" + video.releaseDate + "</td></tr>";
                     $("#userListBody").html(html);
                 }
             }
@@ -133,9 +138,7 @@
                     var video = list[i];
 
                     html += "<tr>" +
-                        "<td>" + video.videoId + "</td><td>" + video.videoName + "</td><td>" + video.videoType + "</td><td>" + video.releaseDate + "</td>" +
-                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + video.videoId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + video.videoId + "\");'>删除</a></td>" +
-                        "</tr>";
+                        "<td>" + video.videoId + "</td><td>" + video.videoName + "</td><td>" + video.videoType + "</td><td>" + video.releaseDate + "</td></tr>";
                     $("#userListBody").html(html);
                 }
             }
@@ -151,7 +154,7 @@
             url: "/video-rent/video/addVideo",
             data: $('#videoForm').serialize(),
             success: function (data) {
-                alert("保存成功");
+                alert("save success");
                 selectVideo();
                 $("#addModal").hide();
             }

@@ -14,12 +14,12 @@
 <input type="hidden" value="${pageContext.request.contextPath}" id="urlPathUser">
 <div class="container-fluid">
     <div class="row-fluid">
-        <h4>视频列表</h4>
-        <div><input type="text" id="conditionVideo" style="margin: 0;height: 6%" placeholder="根据视频名称或者类型查询"><span style="margin-left: 2%"><a
-                class="btn btn-success" onclick="selectUsersByCondition();">查询</a></span></div>
+        <h4>video list</h4>
+        <div><input type="text" id="conditionVideo" style="margin: 0;height: 6%" placeholder="search list by name or type"><span style="margin-left: 2%"><a
+                class="btn btn-success" onclick="selectUsersByCondition();">search</a></span></div>
 
         <div class="add" style="margin-left: 91%">
-            <c:if test="${isLogin == 'true'}"><a class="btn btn-success " onclick="openadd();">新增</a> </c:if>
+            <c:if test="${isLogin == 'true'}"><a class="btn btn-success " onclick="openadd();">add</a> </c:if>
         </div>
 
         <div class="w">
@@ -27,11 +27,11 @@
                 <table class="table table-condensed table-bordered table-hover tab">
                     <thead>
                     <tr>
-                        <th>视频编号</th>
-                        <th>视频名称</th>
-                        <th>视频类型</th>
-                        <th>发布时间</th>
-                        <th>操作</th>
+                        <th>No</th>
+                        <th>video name</th>
+                        <th>video type</th>
+                        <th>release date</th>
+                        <th>operation</th>
                     </tr>
                     </thead>
                     <tbody id="userListBody"></tbody>
@@ -46,27 +46,27 @@
              aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">添加视频</h3>
+                <h3 id="myModalLabel">add video</h3>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="videoForm" onsubmit="return false;">
                     <input type="text" name="videoId" id="videoId" style="display:none">
                     <div class="control-group">
-                        <label class="control-label" for="videoName">视频名称</label>
+                        <label class="control-label" for="videoName">video name</label>
                         <div class="controls">
-                            <input type="text" name="videoName" id="videoName" placeholder="视频名称" style="height: 30px">
+                            <input type="text" name="videoName" id="videoName" placeholder="video name" style="height: 30px">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="videoType">视频类型</label>
+                        <label class="control-label" for="videoType">video type</label>
                         <div class="controls">
-                            <input type="text" id="videoType" name="videoType" placeholder="视频类型" style="height: 30px">
+                            <input type="text" id="videoType" name="videoType" placeholder="video type" style="height: 30px">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="releaseDate">发布日期</label>
+                        <label class="control-label" for="releaseDate">release date</label>
                         <div class="controls">
-                            <input type="text" id="releaseDate" name="releaseDate" placeholder="发布日期"
+                            <input type="text" id="releaseDate" name="releaseDate" placeholder="release date"
                                    style="height: 30px">
                         </div>
                     </div>
@@ -81,9 +81,9 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                <button class="btn btn-primary" id="add" onclick="save()">保存</button>
-                <button class="btn btn-primary" id="edt" onclick="edit();">保存</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">close</button>
+                <button class="btn btn-primary" id="add" onclick="save()">save</button>
+                <button class="btn btn-primary" id="edt" onclick="edit();">save</button>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@
     function selectUsersByCondition() {
 //        var $urlPath = $('#urlPathVideo').val();
         if ($isLogin != 'true'){
-            alert('请先登录!')
+            alert('please login!')
             return;
         }
         var condition = $('#conditionVideo').val();
@@ -118,7 +118,7 @@
 
                     html += "<tr>" +
                         "<td>" + video.videoId + "</td><td>" + video.videoName + "</td><td>" + video.videoType + "</td><td>" + video.releaseDate + "</td>" +
-                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + video.videoId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + video.videoId + "\");'>删除</a></td>" +
+                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + video.videoId + "\");'>modify</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + video.videoId + "\");'>delete</a></td>" +
                         "</tr>";
                     $("#userListBody").html(html);
                 }
@@ -141,7 +141,7 @@
 
                     html += "<tr>" +
                         "<td>" + video.videoId + "</td><td>" + video.videoName + "</td><td>" + video.videoType + "</td><td>" + video.releaseDate + "</td>" +
-                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + video.videoId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + video.videoId + "\");'>删除</a></td>" +
+                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + video.videoId + "\");'>modify</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + video.videoId + "\");'>delete</a></td>" +
                         "</tr>";
                     $("#userListBody").html(html);
                 }
@@ -158,7 +158,7 @@
             url: $ctx + "/video/addVideo",
             data: $('#videoForm').serialize(),
             success: function (data) {
-                alert("保存成功");
+                alert("save success");
                 selectVideo();
                 $("#addModal").hide();
             }

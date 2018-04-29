@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="${pageContext.request.contextPath}/plugin/bootstrap2.3.2/css/bootstrap.min.css" rel="stylesheet"/>
-    <title>视频租赁管理系统</title>
+    <title>system of video manage</title>
     <link href="${pageContext.request.contextPath}/static/styles/Common.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/static/styles/Index.css" rel="stylesheet"/>
     <
@@ -13,32 +13,33 @@
 <body>
 <div class="header">
     <img class="logo" src="${pageContext.request.contextPath}/static/images/logo.png"/>
-    <label class="logo-title">视频租赁管理系统</label>
+    <label class="logo-title">system of video manage</label>
     <ul class="inline">
         <li>
-            <img src="${pageContext.request.contextPath}/static/images/32/client.png"/>&nbsp;&nbsp;欢迎使用视频管理系统
+            <%--<img src="${pageContext.request.contextPath}/static/images/32/client.png"/>&nbsp;&nbsp;欢迎使用视频管理系统--%>
+            <img src="${pageContext.request.contextPath}/static/images/32/client.png"/>&nbsp;&nbsp;Welcome to use system of video manage
         </li>
         <li class="dropdown">
             <c:choose>
                 <c:when test="${isLogin == 'true'}">
                     <a class="dropdown-toggle mymsg" data-toggle="dropdown" href="#"><img
-                            src="${pageContext.request.contextPath}/static/images/32/166.png"/>&nbsp;&nbsp;修改个人信息<b
+                            src="${pageContext.request.contextPath}/static/images/32/166.png"/>&nbsp;&nbsp;modify personal information<b
                             class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">修改密码</a></li>
+                        <li><a href="#">modify password</a></li>
                     </ul>
                 </c:when>
                 <c:otherwise>
                     <a class="mymsg" data-toggle="dropdown" href="javascript:;" onclick="selfOpen('${ctx}/user/loginBegin')"><img
-                            src="${pageContext.request.contextPath}/static/images/32/166.png"/>&nbsp;&nbsp;登录</a>
+                            src="${pageContext.request.contextPath}/static/images/32/166.png"/>&nbsp;&nbsp;login</a>
                     <a class="mymsg" data-toggle="dropdown" href="javascript:;" onclick="selfOpen('${ctx}/user/register')"><img
-                            src="${pageContext.request.contextPath}/static/images/32/166.png"/>&nbsp;&nbsp;注册</a>
+                            src="${pageContext.request.contextPath}/static/images/32/166.png"/>&nbsp;&nbsp;register</a>
                 </c:otherwise>
             </c:choose>
         </li>
         <c:if test="${isLogin == 'true'}">
         <li>
-            <img src="${pageContext.request.contextPath}/static/images/32/200.png"/>&nbsp;&nbsp;<a class="loginout" href="javascript:;">退出</a>
+            <img src="${pageContext.request.contextPath}/static/images/32/200.png"/>&nbsp;&nbsp;<a class="loginout" href="javascript:;">logout</a>
         </li>
     </c:if>
     </ul>
@@ -48,7 +49,7 @@
         <li>
             <img src="${pageContext.request.contextPath}/static/images/32/5025_networking.png"/>
         </li>
-        <li><a href="#">首页</a> <span class="divider">>></span></li>
+        <li><a href="#">home</a> <span class="divider">>></span></li>
         <li class="active"></li>
     </ul>
 </div>
@@ -58,12 +59,11 @@
         <div class="span2 content-left">
             <div class="accordion">
                 <div class="accordion-group">
-
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2">
                             <img class="left-icon"
                                  src="${pageContext.request.contextPath}/static/images/32/5026_settings.png"/><span
-                                class="left-title">视频管理</span>
+                                class="left-title">video manage</span>
                         </a>
                     </div>
                     <c:if test="${isLogin == 'true'}">
@@ -71,7 +71,7 @@
                         <div class="accordion-inner">
                             <img class="left-icon-child"
                                  src="${pageContext.request.contextPath}/static/images/32/4962_sitemap.png"/><span
-                                class="left-body" >用户管理</span>
+                                class="left-body" >user manage</span>
                         </div>
                     </div>
                     </c:if>
@@ -79,7 +79,7 @@
                         <div class="accordion-inner"  id="goodsManger">
                             <img class="left-icon-child"
                                  src="${pageContext.request.contextPath}/static/images/32/4957_customers.png"/><span
-                                class="left-body">视频管理</span>
+                                class="left-body">video manage</span>
                         </div>
                     </div>
                     <c:if test="${isLogin == 'true'}">
@@ -87,19 +87,10 @@
                         <div class="accordion-inner" id="orderManger">
                             <img class="left-icon-child"
                                  src="${pageContext.request.contextPath}/static/images/32/4992_user.png"/><span
-                                class="left-body">消费记录</span>
-
+                                class="left-body">consum history</span>
                         </div>
                     </div>
                     </c:if>
-                    <%--<div>--%>
-                        <%--<div class="accordion-inner" id="shoppCarManger">--%>
-                            <%--<img class="left-icon-child"--%>
-                                 <%--src="${pageContext.request.contextPath}/static/images/32/612.png"/><span--%>
-                                <%--class="left-body">购物车管理</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-
                 </div>
             </div>
         </div>
@@ -150,7 +141,6 @@
         $("#shoppCarManger").on("click",function () {
             skip(4)
         })
-
     </script>
 </div>
 

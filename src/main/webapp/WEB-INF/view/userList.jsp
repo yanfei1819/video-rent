@@ -15,20 +15,20 @@
 <input type="hidden" value="${pageContext.request.contextPath}" id="urlPathUser">
 <div class="container-fluid">
     <div class="row-fluid">
-        <h4>用户列表</h4>
-        <div><input type="text" id="search" style="margin: 0;height: 6%"><span style="margin-left: 2%"><a class="btn btn-success" onclick="selectUsersByCondition();">查询</a></span></div>
-        <div class="add" style="margin-left: 91%"><a class="btn btn-success " onclick="openadd();">新增</a></div>
+        <h4>user list</h4>
+        <div><input type="text" id="search" style="margin: 0;height: 6%"><span style="margin-left: 2%"><a class="btn btn-success" onclick="selectUsersByCondition();">search</a></span></div>
+        <div class="add" style="margin-left: 91%"><a class="btn btn-success " onclick="openadd();">add</a></div>
         <div class="w">
             <div class="span12">
                 <table class="table table-condensed table-bordered table-hover tab">
                     <thead>
                     <tr>
-                        <th>用户编号</th>
-                        <th>用户姓名</th>
-                        <th>用户手机</th>
-                        <th>用户角色</th>
-                        <th>用户年龄</th>
-                        <th>操作</th>
+                        <th>No</th>
+                        <th>user name</th>
+                        <th>mobile</th>
+                        <th>role</th>
+                        <th>age</th>
+                        <th>operation</th>
                     </tr>
                     </thead>
                     <tbody id="userListBody"></tbody>
@@ -43,47 +43,47 @@
              aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">添加用户</h3>
+                <h3 id="myModalLabel">add user</h3>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="form1">
                     <input type="text" name="userId" id="userId" style="display:none">
                     <div class="control-group">
-                        <label class="control-label" for="userName">姓名</label>
+                        <label class="control-label" for="userName">name</label>
                         <div class="controls">
-                            <input type="text" name="name" id="userName" placeholder="姓名" style="height: 30px">
+                            <input type="text" name="name" id="userName" placeholder="name" style="height: 30px">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="age">姓名</label>
+                        <label class="control-label" for="age">name</label>
                         <div class="controls">
-                            <input type="text" name="age" id="age" placeholder="年龄" style="height: 30px">
+                            <input type="text" name="age" id="age" placeholder="age" style="height: 30px">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="mobile">手机</label>
+                        <label class="control-label" for="mobile">mobile</label>
                         <div class="controls">
-                            <input type="text" id="mobile" name="mobile" placeholder="手机" style="height: 30px">
+                            <input type="text" id="mobile" name="mobile" placeholder="mobile" style="height: 30px">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="address">地址</label>
+                        <label class="control-label" for="address">address</label>
                         <div class="controls">
-                            <input type="text" id="address" name="address" placeholder="地址" style="height: 30px">
+                            <input type="text" id="address" name="address" placeholder="address" style="height: 30px">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="password">密码</label>
+                        <label class="control-label" for="password">password</label>
                         <div class="controls">
-                            <input type="text" id="password" name="password" placeholder="密码" style="height: 30px">
+                            <input type="text" id="password" name="password" placeholder="password" style="height: 30px">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                <button class="btn btn-primary" id="add" onclick="save()">保存</button>
-                <button class="btn btn-primary" id="edt" onclick="edit();">保存</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">close</button>
+                <button class="btn btn-primary" id="add" onclick="save()">save</button>
+                <button class="btn btn-primary" id="edt" onclick="edit();">save</button>
             </div>
         </div>
     </div>
@@ -114,7 +114,7 @@
 
                     html += "<tr>" +
                         "<td>" + user.userId + "</td><td>" + user.name + "</td><td>" + user.mobile + "</td><td>" + user.roleId + "</td><td>" + user.age + "</td>" +
-                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>删除</a></td>" +
+                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>modify</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>delete</a></td>" +
                         "</tr>";
                 }
                 $("#userListBody").html(html);
@@ -137,7 +137,7 @@
                     var user = list[i];
                     html += "<tr>" +
                         "<td>" + user.userId + "</td><td>" + user.name + "</td><td>" + user.mobile + "</td><td>" + user.roleId + "</td><td>" + user.age + "</td>" +
-                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>修改</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>删除</a></td>" +
+                        "<td><a class=\"btn btn-info\" onclick='editOpen(\"" + user.userId + "\");'>modify</a>&nbsp;&nbsp;<a class=\"btn btn-warning\" onclick='del(\"" + user.userId + "\");'>delete</a></td>" +
                         "</tr>";
                     $("#userListBody").html(html);
                 }
@@ -154,7 +154,7 @@
             url: $ctx +"/user/addUser",
             data: $('#form1').serialize(),
             success: function (data) {
-                alert("保存成功");
+                alert("save success");
                 $("#addModal").modal('hide');
                 selectUsers();
             }

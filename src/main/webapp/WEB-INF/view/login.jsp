@@ -11,16 +11,16 @@
 <body>
 <input type="hidden" value="${pageContext.request.contextPath}" id="urlPath">
 <div class="login">
-    <div class="message">视频管理系统</div>
+    <div class="message">system of video manage</div>
     <div id="darkbannerwrap"></div>
     <form method="post" id="userForm">
         <input name="action" value="login" type="hidden"/>
-        <input name="username" placeholder="用户名" required="" type="text"/>
+        <input name="username" placeholder="username" required="" type="text"/>
         <hr class="hr15"/>
-        <input name="password" placeholder="密码" required="" type="password"/>
+        <input name="password" placeholder="password" required="" type="password"/>
         <hr class="hr15"/>
-        <input value="登录" style="width:100%;" type="button" id="submit"/>
-        <div style="margin-left: 92%"><a href="" id="register">注册</a></div>
+        <input value="register" style="width:100%;" type="button" id="submit"/>
+        <div style="margin-left: 92%"><a href="" id="register">register</a></div>
     </form>
 </div>
 <script src="${pageContext.request.contextPath}/static/scripts/jquery-1.9.1.min.js"></script>
@@ -42,11 +42,11 @@
                 if (data && data === 'index') {
                     window.location.href = $urlPath + '/user/home'
                 } else {
-                    alert('用户名或密码错误');
+                    alert('username or password is error');
                 }
             },
             error: function(){
-                alert('请求失败');
+                alert('request error');
             }
         })
     })

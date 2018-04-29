@@ -11,15 +11,15 @@
 <body>
 <input type="hidden" value="${pageContext.request.contextPath}" id="urlPath">
 <div class="login">
-    <div class="message">视频租赁管理系统</div>
+    <div class="message">system of video manage</div>
     <div id="darkbannerwrap"></div>
     <form method="post" id="userFormRegister">
         <input name="action" value="login" type="hidden"/>
-        <input name="name" placeholder="用户名" required="" type="text"/>
+        <input name="name" placeholder="username" required="" type="text"/>
         <hr class="hr15"/>
-        <input name="password" placeholder="密码" required="" type="password"/>
+        <input name="password" placeholder="password" required="" type="password"/>
         <hr class="hr15"/>
-        <input value="注册" style="width:100%;" type="submit" id="submitRegister"/>
+        <input value="register" style="width:100%;" type="submit" id="submitRegister"/>
     </form>
 </div>
 <script src="${pageContext.request.contextPath}/static/scripts/jquery-1.9.1.min.js"></script>
